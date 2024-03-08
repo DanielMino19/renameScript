@@ -1,3 +1,4 @@
+require('dotenv').config()
 const axios = require('axios');
 const fs = require('fs');
 const FormData = require('form-data');
@@ -5,11 +6,11 @@ const FormData = require('form-data');
 class ImgAutomatizeUploadService {
 
   constructor() {
-    this.cloudName = ''; // Cloudinary cloud name
-    this.API_KEY = ''; // Cloudinary API key
-    this.uploadPreset = ''; // Cloudinary upload preset
-    this.supabaseUrl = ''; // Supabase URL
-    this.supabaseApiKey = ''; // Supabase API key
+    this.cloudName = process.env.CLOUD_NAME; // Cloudinary cloud name
+    this.apiKey = process.env.API_KEY; // Cloudinary API key 
+    this.uploadPreset = process.env.UPLOAD_PRESENT ; // Cloudinary upload preset
+    this.supabaseUrl = process.env.SUPABASE_URL; // Supabase URL
+    this.supabaseApiKey = process.env.SUPABASE_API_KEY; // Supabase API key
     this.folderPath = './public/imagesFelix'; // Carpeta de imágenes
   }
 
@@ -64,7 +65,7 @@ class ImgAutomatizeUploadService {
         {
           headers: {
             ...formData.getHeaders(),
-            'Authorization': `Basic ${Buffer.from(`${this.API_KEY}:`).toString('base64')}`
+            'Authorization': `Basic ${Buffer.from(`${this.apiKey}:`).toString('base64')}`
           }
         }
       );
