@@ -26,14 +26,14 @@ function logErrorToFile(errorMessage: string) {
 async function getCategoryIds(filters: string[], parentCategory: string): Promise<number[]> {
   const categoryIds: number[] = [];
 
-  // Crear o buscar categoría padre primero
+
   const parentCategoryId = await findOrCreateCategory(parentCategory);
 
   if (parentCategoryId) {
     categoryIds.push(parentCategoryId);
   }
 
-  // Crear o buscar categorías hijas
+
   for (const filter of filters) {
     const childCategoryId = await findOrCreateCategory(filter, parentCategoryId);
     if (childCategoryId) {
@@ -53,12 +53,12 @@ async function findOrCreateCategory(name: string, parentCategoryId?: number): Pr
   };
 
   try {
-    // Buscar la categoría por nombre
+
     const existingCategoryId = await apiService.findByName(name);
     if (existingCategoryId) {
       return existingCategoryId;
     } else {
-      // Crear la categoría si no existe
+
       return await apiService.createCategory(categoryData);
     }
   } catch (error: any) {
@@ -96,10 +96,10 @@ async function uploadProductImages(productId: string, images: string[]): Promise
 async function uploadProducts(products: any[], parentCategory: string) {
   for (const product of products) {
     try {
-      // Validar campos mínimos requeridos
+
       if (!product.name || !product.description || !product.filters) {
         logErrorToFile(`Product is missing required fields: ${product.name}`);
-        continue; // Saltar productos incompletos
+        continue;
       }
 
       const uploadedImages = await uploadProductImages(product.id, product.img || []);
@@ -118,17 +118,17 @@ async function uploadProducts(products: any[], parentCategory: string) {
       };
 
       if (product.specs) {
-        // Inicializar productFeatures si aún no existe
+        
         productData.productFeatures = productData.productFeatures || {};
       
-        // Si tiene specs y features, agregarlos
+       
         if (product.specs.features) {
           productData.productFeatures.specs = product.specs.features || [];
         } else {
           productData.productFeatures.specs = []
         }
       
-        // Si tiene description, agregarlo como items
+        
         if (product.specs.description) {
           productData.productFeatures.items = product.specs.description.map((desc: any) => ({
             title: desc.title,

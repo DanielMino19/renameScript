@@ -434,7 +434,7 @@ export const doorsData: CatalogData[] = [
       maxMeasures: "1800x2300 mm",
       description: [
         {
-          title: "Tipo",
+          title: "Tipdo",
           text: "Puertas de rebatir de aluminio.",
         },
         {
