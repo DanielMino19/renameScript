@@ -1,0 +1,7 @@
+Reporte de errores en la subida de productos: en   doorsModel, "aberturas"
+    y bathroomPartitionData, "reventas"
+
+2024-09-13T00:08:44.324Z - Product is missing required fields: Modelos de puerta
+2024-09-13T00:08:46.624Z - Failed to upload image: ..\renameScript\public\products\mamparalinea1000\Panel 1000 brazos rectos.png . Error: ENOENT: no such file or directory, open 'D:\Programacion\DSNProyects\renameScript\public\products\mamparalinea1000\Panel 1000 brazos rectos.png'
+2024-09-13T00:08:46.647Z - Failed to upload image: ..\renameScript\public\products\mamparalinea1000\Panel 1010 Barral Toallero.png . Error: ENOENT: no such file or directory, open 'D:\Programacion\DSNProyects\renameScript\public\products\mamparalinea1000\Panel 1010 Barral Toallero.png'
+2024-09-13T00:08:51.258Z - Failed to upload image: ..\renameScript\public\products\mamparalinea2000\Rebatible Pivot 2200.png . Error: ENOENT: no such file or directory, open 'D:\Programacion\DSNProyects\renameScript\public\products\mamparalinea2000\Rebatible Pivot 2200.png'

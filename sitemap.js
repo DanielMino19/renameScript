@@ -41,7 +41,7 @@ async function getProductNamesFromSupabase() {
               'apikey': supabaseKey
           }
       });
-        return response.data.map(products => products.name);
+        return response.data.map(products => products.id);
     } catch (error) {
         console.error('Error al obtener nombres de productos desde Supabase:', error);
         return [];
@@ -50,7 +50,7 @@ async function getProductNamesFromSupabase() {
 
 async function generateURLs() {
     const productNames = await getProductNamesFromSupabase();
-    const supabaseUrls = productNames.map(nombre => `http://felixmenendez.com.ar/productos-felix-menendez/producto?name=${encodeURIComponent(nombre)}`);
+    const supabaseUrls = productNames.map(id => `http://felixmenendez.com.ar/productos-felix-menendez/producto?id=${encodeURIComponent(id)}`);
 
     const allUrls = [...existingUrls, ...supabaseUrls];
 
@@ -63,7 +63,7 @@ async function generateSitemap() {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     `;
 
-    // Agregar cada URL al sitemap
+
     urls.forEach(url => {
         xml += `<url><loc>${url}</loc></url>\n`;
     });

@@ -1,0 +1,5 @@
+Reporte de errores en la subida de productos :
+   de resaleCurtainsData, "reventas"
+
+
+2024-09-13T00:16:54.953Z - Failed to upload image: ..\renameScript\public\products\enrollable-screen\Sunset_Enrollables_Screen.png . Error: Request failed with status code 400
